@@ -1,12 +1,19 @@
-import { Crown, Home, Settings, ShoppingCart } from "lucide-react";
+import { Crown, Home, Settings, ShoppingCart, LogOut } from "lucide-react";
 import { Button } from "./ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { isAuthenticated, logout } = useAuth();
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <header className="bg-gradient-dark shadow-elegant border-b border-accent/20">
@@ -29,14 +36,36 @@ const Header = () => {
               Home
             </Button>
             
-            <Button
-              variant={isActive("/dashboard") ? "secondary" : "ghost"}
-              onClick={() => navigate("/dashboard")}
-              className="text-primary-foreground hover:text-accent"
-            >
-              <Settings className="h-4 w-4 mr-2" />
-              Dashboard
-            </Button>
+            {isAuthenticated ? (
+              <>
+                <Button
+                  variant={isActive("/dashboard") ? "secondary" : "ghost"}
+                  onClick={() => navigate("/dashboard")}
+                  className="text-primary-foreground hover:text-accent"
+                >
+                  <Settings className="h-4 w-4 mr-2" />
+                  Dashboard
+                </Button>
+                
+                <Button
+                  variant="ghost"
+                  onClick={handleLogout}
+                  className="text-primary-foreground hover:text-accent"
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Sair
+                </Button>
+              </>
+            ) : (
+              <Button
+                variant="ghost"
+                onClick={() => navigate("/login")}
+                className="text-primary-foreground hover:text-accent"
+              >
+                <Settings className="h-4 w-4 mr-2" />
+                Login Técnico
+              </Button>
+            )}
             
             <Button
               variant={isActive("/checkout") ? "secondary" : "ghost"}
