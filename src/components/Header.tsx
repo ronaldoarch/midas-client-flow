@@ -1,17 +1,16 @@
 import { Crown, Home, Settings, ShoppingCart, LogOut } from "lucide-react";
 import { Button } from "./ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
+import { CartSidebar } from "./CartSidebar";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { isAuthenticated, logout } = useAuth();
+  const isAuthenticated = true; // Always show as authenticated for client demos
 
   const isActive = (path: string) => location.pathname === path;
 
   const handleLogout = () => {
-    logout();
     navigate("/");
   };
 
@@ -75,6 +74,8 @@ const Header = () => {
               <ShoppingCart className="h-4 w-4 mr-2" />
               Checkout
             </Button>
+            
+            <CartSidebar />
           </nav>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectDetailsModal from "@/components/ProjectDetailsModal";
 import AddProjectModal from "@/components/AddProjectModal";
+import { ProductCatalog } from "@/components/ProductCatalog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -219,6 +220,10 @@ const Dashboard = () => {
           onClose={() => setIsAddModalOpen(false)}
           onAddProject={handleAddProject}
         />
+        
+        <div className="mt-12">
+          <ProductCatalog />
+        </div>
       </main>
     </div>
   );
