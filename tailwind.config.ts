@@ -47,6 +47,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // STEP Model Colors
+        stepSaber: "hsl(var(--step-saber))",
+        stepTer: "hsl(var(--step-ter))",
+        stepExecutar: "hsl(var(--step-executar))",
+        stepPotencializar: "hsl(var(--step-potencializar))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -57,6 +62,15 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        'gradient-gold': 'var(--gradient-gold)',
+        'gradient-dark': 'var(--gradient-dark)',
+        'gradient-hero': 'var(--gradient-hero)',
+      },
+      boxShadow: {
+        'gold': 'var(--shadow-gold)',
+        'elegant': 'var(--shadow-elegant)',
       },
       borderRadius: {
         lg: "var(--radius)",
