@@ -1,13 +1,16 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import ProjectCard from "@/components/ProjectCard";
+import ProjectDetailsModal from "@/components/ProjectDetailsModal";
+import AddProjectModal from "@/components/AddProjectModal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Plus, TrendingUp, Users, DollarSign } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Dashboard = () => {
-  const [projects] = useState([
+  const [projects, setProjects] = useState([
     {
       id: 1,
       title: "Implementação de Site - Basic",
@@ -15,6 +18,12 @@ const Dashboard = () => {
       price: 10862.66,
       margin: 71.8,
       status: "TM" as const,
+      dedicationPercentage: 100,
+      dedication: "Dedicação Exclusiva",
+      clientName: "Tech Solutions LTDA",
+      projectManager: "Carlos Silva",
+      startDate: "2024-01-15",
+      estimatedDuration: "3 meses"
     },
     {
       id: 2,
@@ -23,7 +32,12 @@ const Dashboard = () => {
       price: 24337.50,
       margin: 62.0,
       status: "Executiva" as const,
-      dedication: "Dedicado (100%)"
+      dedicationPercentage: 100,
+      dedication: "Dedicação Exclusiva",
+      clientName: "Growth Marketing Co.",
+      projectManager: "Ana Santos",
+      startDate: "2024-02-01",
+      estimatedDuration: "6 meses"
     },
     {
       id: 3,
@@ -32,6 +46,12 @@ const Dashboard = () => {
       price: 2015.73,
       margin: 59.5,
       status: "TM" as const,
+      dedicationPercentage: 25,
+      dedication: "Gestão Parcial",
+      clientName: "StartUp Digital",
+      projectManager: "João Oliveira", 
+      startDate: "2024-01-20",
+      estimatedDuration: "4 semanas"
     },
     {
       id: 4,
@@ -40,6 +60,12 @@ const Dashboard = () => {
       price: 200.00,
       margin: 45.3,
       status: "Executiva" as const,
+      dedicationPercentage: 10,
+      dedication: "Suporte Mínimo",
+      clientName: "E-commerce Plus",
+      projectManager: "Maria Costa",
+      startDate: "2024-01-01",
+      estimatedDuration: "12 meses"
     },
     {
       id: 5,
@@ -48,7 +74,12 @@ const Dashboard = () => {
       price: 22450.00,
       margin: 58.5,
       status: "Executiva" as const,
-      dedication: "Dedicado (100%)"
+      dedicationPercentage: 50,
+      dedication: "Gestão Compartilhada",
+      clientName: "Vendas Pro",
+      projectManager: "Roberto Lima",
+      startDate: "2024-02-15",
+      estimatedDuration: "4 meses"
     },
     {
       id: 6,
@@ -57,9 +88,19 @@ const Dashboard = () => {
       price: 37954.00,
       margin: 55.5,
       status: "Executiva" as const,
-      dedication: "Dedicado (100%)"
+      dedicationPercentage: 100,
+      dedication: "Dedicação Exclusiva",
+      clientName: "Influencer Agency",
+      projectManager: "Fernanda Rocha",
+      startDate: "2024-03-01", 
+      estimatedDuration: "Contínuo"
     },
   ]);
+
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const { toast } = useToast();
 
   const stats = [
     {
@@ -90,6 +131,20 @@ const Dashboard = () => {
     }).format(value);
   };
 
+  const handleViewDetails = (projectId: number) => {
+    const project = projects.find(p => p.id === projectId);
+    setSelectedProject(project);
+    setIsDetailsModalOpen(true);
+  };
+
+  const handleAddProject = (newProject: any) => {
+    setProjects([...projects, newProject]);
+    toast({
+      title: "Projeto criado com sucesso!",
+      description: `O projeto "${newProject.title}" foi adicionado ao dashboard.`,
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -103,7 +158,10 @@ const Dashboard = () => {
                 Gerencie projetos, clientes e precificação
               </p>
             </div>
-            <Button className="bg-gradient-gold hover:opacity-90 text-primary shadow-gold">
+            <Button 
+              onClick={() => setIsAddModalOpen(true)}
+              className="bg-gradient-gold hover:opacity-90 text-primary shadow-gold"
+            >
               <Plus className="h-4 w-4 mr-2" />
               Novo Projeto
             </Button>
@@ -144,10 +202,23 @@ const Dashboard = () => {
               margin={project.margin}
               status={project.status}
               dedication={project.dedication}
-              onViewDetails={() => console.log(`Ver detalhes do projeto ${project.id}`)}
+              onViewDetails={() => handleViewDetails(project.id)}
             />
           ))}
         </div>
+
+        {/* Modals */}
+        <ProjectDetailsModal
+          project={selectedProject}
+          isOpen={isDetailsModalOpen}
+          onClose={() => setIsDetailsModalOpen(false)}
+        />
+        
+        <AddProjectModal
+          isOpen={isAddModalOpen}
+          onClose={() => setIsAddModalOpen(false)}
+          onAddProject={handleAddProject}
+        />
       </main>
     </div>
   );
