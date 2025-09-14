@@ -1,4 +1,6 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import Header from "@/components/Header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -102,8 +104,16 @@ const calcPrice = (basePrice: number, dedicationPct: number) => {
 };
 
 const Dashboard = () => {
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   const [category, setCategory] = useState("ALL");
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  }, [isAuthenticated, navigate]);
 
   // Estado por serviço
   const [selection, setSelection] = useState(

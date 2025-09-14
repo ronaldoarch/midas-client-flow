@@ -24,8 +24,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const login = (username: string, password: string): boolean => {
-    // Credenciais hardcoded conforme solicitado
-    if (username === 'admMidas' && password === '123456midas') {
+    // Credenciais conforme solicitado
+    if (username === 'Admin' && password === 'Admin123') {
       setIsAuthenticated(true);
       return true;
     }
