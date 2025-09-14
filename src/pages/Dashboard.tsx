@@ -10,10 +10,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { ShoppingCart, Filter, ArrowRight, Plus, Minus } from "lucide-react";
 
 const CATEGORIES = [
-  { key: "SABER", label: "M – Mapeamento (SABER)", color: "border-red-400 text-red-300" },
-  { key: "TER", label: "I – Implementação (TER)", color: "border-emerald-400 text-emerald-300" },
-  { key: "EXECUTAR", label: "D – Direcionamento (EXECUTAR)", color: "border-orange-400 text-orange-300" },
-  { key: "POTENCIALIZAR", label: "A – Aceleração (POTENCIALIZAR)", color: "border-violet-400 text-violet-300" },
+  { key: "M", label: "M – Mapeamento", color: "border-red-400 text-red-300" },
+  { key: "I", label: "I – Implementação", color: "border-emerald-400 text-emerald-300" },
+  { key: "D", label: "D – Direcionamento", color: "border-orange-400 text-orange-300" },
+  { key: "A", label: "A – Aceleração", color: "border-violet-400 text-violet-300" },
 ];
 
 const CATALOG = [
@@ -22,7 +22,7 @@ const CATALOG = [
     id: "roi-system",
     name: "ROI System & Diagnóstico",
     short: "Análise de funil (cadastro → depósito → recompra), auditoria de contas e plano de ação.",
-    category: "SABER",
+    category: "M",
     basePrice: 2481.25,
     margin: 0.88,
     badges: ["Diagnóstico", "Relatório Inteligente", "Plano 30-60-90"],
@@ -32,7 +32,7 @@ const CATALOG = [
     id: "lp-basic",
     name: "Implementação de Landing Page",
     short: "LP de alta conversão com tracking (Pixel+CAPI) e pagespeed otimizado.",
-    category: "TER",
+    category: "I",
     basePrice: 2015.73,
     margin: 0.72,
     badges: ["HTML/Next", "Pixel+CAPI", "A/B-ready"],
@@ -41,16 +41,7 @@ const CATALOG = [
     id: "ecommerce-basic",
     name: "Implementação de E-commerce (Basic)",
     short: "Loja no modelo permitido para réplicas/encapsulados com contingência e CRM.",
-    category: "TER",
-    basePrice: 11869.32,
-    margin: 0.63,
-    badges: ["Checkout", "CRM", "Contingência"],
-  },
-  {
-    id: "tracking-capi",
-    name: "Tracking Avançado (Pixel, CAPI, Postback)",
-    short: "Integração Meta CAPI + Keitaro/BeMob + Webhooks (Lead/Reg/Purchase/FTD).",
-    category: "TER",
+    category: "I",
     basePrice: 3980.0,
     margin: 0.68,
     badges: ["Meta CAPI", "Webhook", "Keitaro/BeMob"],
@@ -60,7 +51,7 @@ const CATALOG = [
     id: "trafego-gestao",
     name: "Gestão de Tráfego Black",
     short: "Campanhas FB/Google/TikTok com criativos e contingência, foco em ROI.",
-    category: "EXECUTAR",
+    category: "D",
     basePrice: 4200.0,
     margin: 0.6,
     badges: ["FB/Google/TikTok", "Contingência", "Relatórios"],
@@ -69,7 +60,7 @@ const CATALOG = [
     id: "criativos-pack",
     name: "Pacote de Criativos (Estático + Roteiros Reels)",
     short: "Variantes premium com copy agressiva, testes A/B e anti-bloqueio.",
-    category: "EXECUTAR",
+    category: "D",
     basePrice: 1850.0,
     margin: 0.7,
     badges: ["Estático", "Reels", "A/B"],
@@ -78,7 +69,7 @@ const CATALOG = [
     id: "manutencao-site",
     name: "Manutenção de Site (Mensal)",
     short: "Atualizações, correções, manutenção de segurança e pagespeed.",
-    category: "EXECUTAR",
+    category: "D",
     basePrice: 450.0,
     margin: 0.51,
     badges: ["Segurança", "Correções", "Pagespeed"],
@@ -88,7 +79,7 @@ const CATALOG = [
     id: "growth-expansao",
     name: "Growth & Expansão (Países/Mídias)",
     short: "Escala internacional, afiliados/influenciadores, mídia nativa e display.",
-    category: "POTENCIALIZAR",
+    category: "A",
     basePrice: 6240.0,
     margin: 0.59,
     badges: ["Afiliados", "Nativas", "Internacional"],
@@ -97,7 +88,7 @@ const CATALOG = [
     id: "mentoria-performance",
     name: "Mentoria de Alta Performance (CEO/Head)",
     short: "1:1, board mensal e plano de execução com accountability.",
-    category: "POTENCIALIZAR",
+    category: "A",
     basePrice: 3000.0,
     margin: 0.8,
     badges: ["1:1", "Board", "Accountability"],
@@ -340,16 +331,16 @@ const Dashboard = () => {
           {CATEGORIES.map((c) => (
             <div key={c.key} className="border border-border rounded-2xl p-5 bg-card">
               <div className={`text-sm ${c.color} font-semibold mb-2`}>{c.label}</div>
-              {c.key === "SABER" && (
+              {c.key === "M" && (
                 <p className="text-foreground text-sm">Diagnóstico do cenário black: funil, contingência, compliance, tracking e prioridades.</p>
               )}
-              {c.key === "TER" && (
+              {c.key === "I" && (
                 <p className="text-foreground text-sm">Implementação de LPs/e-commerce/CRM, blindagem e integrações (Pixel, CAPI, Postback).</p>
               )}
-              {c.key === "EXECUTAR" && (
+              {c.key === "D" && (
                 <p className="text-foreground text-sm">Gestão de tráfego com otimização contínua, contingência e criativos validados.</p>
               )}
-              {c.key === "POTENCIALIZAR" && (
+              {c.key === "A" && (
                 <p className="text-foreground text-sm">Growth: expansão de canais/países, funis paralelos, afiliados e automações.</p>
               )}
             </div>
