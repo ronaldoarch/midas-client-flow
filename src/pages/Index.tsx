@@ -68,7 +68,7 @@ const Index = () => {
           <div className="text-center">
             <div className="flex items-center justify-center mb-6">
               <Crown className="h-16 w-16 text-accent mr-4" />
-              <h1 className="text-6xl font-bold">MIDAS</h1>
+              <h1 className="text-6xl font-bold">MIDA</h1>
             </div>
             <h2 className="text-3xl font-bold mb-6">
               Método MIDA no Nicho Black
