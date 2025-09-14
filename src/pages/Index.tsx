@@ -9,49 +9,49 @@ const Index = () => {
 
   const stepData = [
     {
-      step: "S",
-      title: "SABER",
+      step: "M",
+      title: "MAPEAMENTO",
       subtitle: "Não sei o que não sei",
       description: [
-        "Cliente tem dúvidas ou desafios mal definidos",
-        "Precisa de ajuda para diagnosticar o cenário e entender o que priorizar",
-        "Soluções: consultorias estratégicas, diagnósticos personalizados e assessments de maturidade"
+        "Dono de plataforma no nicho black não tem clareza sobre onde perde dinheiro ou deixa de escalar",
+        "Dúvidas sobre contingência, criativos, compliance e tracking",
+        "Soluções: diagnóstico de operação, consultoria estratégica, análise de funil (cadastro, depósito, recompra), assessment de maturidade no tráfego pago"
       ],
       icon: <Target />,
       color: "saber" as const
     },
     {
-      step: "T",
-      title: "TER",
+      step: "I",
+      title: "IMPLEMENTAÇÃO",
       subtitle: "Sei o que preciso, mas não tenho",
       description: [
-        "Cliente já identificou o que precisa (ex: site, CRM, e-commerce, landing page etc.)",
-        "Tem clareza das necessidades, mas ainda não tem as soluções implementadas",
-        "Soluções: projetos de implantação pontual com escopo fechado e prazo definido"
+        "Cliente já sabe que precisa de landing pages, e-commerces blindados, sites camuflados, contingência e CRM",
+        "Sabe da importância do tracking avançado (pixel, CAPI, postback), mas ainda não colocou em prática",
+        "Soluções: desenvolvimento de LPs de alta conversão, sites disfarçados, e-commerces adaptados, implantação de CRM, setup de trackers (BeMob/Keitaro), integração com CAPI e webhooks"
       ],
       icon: <Package />,
       color: "ter" as const
     },
     {
-      step: "E",
-      title: "EXECUTAR",
+      step: "D",
+      title: "DIRECIONAMENTO",
       subtitle: "Tenho tudo, mas preciso fazer funcionar",
       description: [
-        "Cliente já possui ferramentas e estrutura mas não gera resultado com consistência",
-        "Precisa de suporte na operação e na otimização das iniciativas",
-        "Soluções: times por dedicação, squads de execução, otimização contínua e acompanhamento"
+        "Cliente já tem estrutura de páginas, contas e criativos, mas não consegue manter ROI positivo com consistência",
+        "Sofre com banimento de contas, queda de CTR, leads ruins ou dificuldade em escalar campanhas",
+        "Soluções: gestão de tráfego black (Facebook, Google, TikTok), squads dedicados para contingência, otimização de criativos, copywriting agressivo validado, relatórios estratégicos de ROI/ROAS/FTD"
       ],
       icon: <Wrench />,
       color: "executar" as const
     },
     {
-      step: "P",
-      title: "POTENCIALIZAR",
+      step: "A",
+      title: "ACELERAÇÃO",
       subtitle: "Domino tudo, quero resultados extraordinários",
       description: [
-        "Cliente tem operação madura e bem estruturada",
-        "Busca ganhos adicionais, paralelos ou complementares sem interferir no core",
-        "Soluções: projetos de alavancagem, inovação, growth e expansão com foco em performance incremental"
+        "Operação já validada e com faturamento sólido",
+        "Busca escala internacional, múltiplas fontes de tráfego (afiliados, influenciadores, nativas, display) e expansão agressiva",
+        "Soluções: growth em novos países, criação de funis paralelos, automações avançadas (n8n, CRMs customizados), mentorias de alta performance, estratégias de alavancagem para ROI 2x–3x"
       ],
       icon: <Rocket />,
       color: "potencializar" as const
@@ -71,11 +71,11 @@ const Index = () => {
               <h1 className="text-6xl font-bold">MIDAS</h1>
             </div>
             <h2 className="text-3xl font-bold mb-6">
-              Sistema de Gestão de Projetos
+              Método MIDA no Nicho Black
             </h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-              Transforme suas ideias em ouro. Gerencie projetos e precifique soluções 
-              baseadas no modelo STEP para entregar máximo valor aos seus clientes.
+              Transforme operações do nicho black em máquinas de lucro. Gerencie projetos e escale 
+              com segurança baseado no método MIDA para entregar resultados extraordinários.
             </p>
             <div className="flex justify-center space-x-4">
               <Button 
@@ -103,13 +103,12 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-6">
-              Introdução ao Modelo STEP™ - A Solução Certa para o Momento Certo
+              Método MIDA™ - Escale Sua Operação Black com Segurança
             </h2>
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Toda empresa passa por 4 momentos distintos em sua jornada de crescimento. Cada um exige uma abordagem diferente e 
-              uma solução sob medida. O modelo STEP™ ajuda você a identificar em que momento o seu cliente está, que impacto ele 
-              busca e qual tipo de produto ou serviço realmente precisa — para que você possa vender com assertividade e entregar o 
-              máximo de valor.
+              Toda operação no nicho black passa por 4 fases distintas em sua jornada de crescimento. Cada uma exige estratégias 
+              específicas e soluções sob medida. O método MIDA™ ajuda você a identificar exatamente em que fase sua operação está, 
+              quais são os gargalos e como acelerar seus resultados com segurança e compliance.
             </p>
           </div>
 
@@ -133,16 +132,16 @@ const Index = () => {
       <section className="bg-muted py-16">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-foreground mb-6">
-            Pronto para transformar seu negócio?
+            Descubra em qual fase do Método MIDA sua operação black está
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Identifique em qual momento seu cliente está e ofereça a solução perfeita
+            Dê o próximo passo para escalar com segurança e maximizar seus resultados
           </p>
           <Button 
             onClick={() => navigate("/checkout")}
             className="bg-gradient-gold hover:opacity-90 text-primary shadow-gold px-8 py-3 text-lg font-semibold"
           >
-            Começar Agora
+            Escalar Minha Operação Agora
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>

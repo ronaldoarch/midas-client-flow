@@ -95,29 +95,30 @@ const Dashboard = () => {
   const {
     toast
   } = useToast();
-  const stats = [{
-    title: "Total de Projetos",
-    value: projects.length,
-    icon: TrendingUp,
-    color: "text-stepTer"
-  }, {
-    title: "Clientes Ativos",
-    value: 23,
-    icon: Users,
-    color: "text-stepExecutar"
-  }, {
-    title: "Receita Total",
-    value: projects.reduce((acc, project) => acc + project.price, 0),
-    icon: DollarSign,
-    color: "text-accent",
-    isPrice: true
-  }];
+  
   const formatPrice = (value: number) => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL'
     }).format(value);
   };
+  
+  const stats = [{
+    label: "Total de Projetos",
+    value: projects.length,
+    icon: <TrendingUp className="h-6 w-6" />,
+    color: "bg-stepTer"
+  }, {
+    label: "Clientes Ativos",
+    value: 23,
+    icon: <Users className="h-6 w-6" />,
+    color: "bg-stepExecutar"
+  }, {
+    label: "Receita Total",
+    value: formatPrice(projects.reduce((acc, project) => acc + project.price, 0)),
+    icon: <DollarSign className="h-6 w-6" />,
+    color: "bg-accent"
+  }];
   const handleViewDetails = (projectId: number) => {
     const project = projects.find(p => p.id === projectId);
     setSelectedProject(project);
@@ -150,7 +151,21 @@ const Dashboard = () => {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {stats.map((stat, index) => {})}
+            {stats.map((stat, index) => (
+              <Card key={index} className="hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-lg ${stat.color} text-white`}>
+                      {stat.icon}
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold">{stat.value}</div>
+                      <div className="text-sm text-muted-foreground">{stat.label}</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
 
