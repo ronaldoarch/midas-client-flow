@@ -9,7 +9,7 @@ const Index = () => {
 
   const stepData = [
     {
-      step: "M",
+      step: "SABER",
       title: "MAPEAMENTO",
       subtitle: "Não sei o que não sei",
       description: [
@@ -21,7 +21,7 @@ const Index = () => {
       color: "saber" as const
     },
     {
-      step: "I",
+      step: "TER",
       title: "IMPLEMENTAÇÃO",
       subtitle: "Sei o que preciso, mas não tenho",
       description: [
@@ -33,7 +33,7 @@ const Index = () => {
       color: "ter" as const
     },
     {
-      step: "D",
+      step: "EXECUTAR",
       title: "DIRECIONAMENTO",
       subtitle: "Tenho tudo, mas preciso fazer funcionar",
       description: [
@@ -45,7 +45,7 @@ const Index = () => {
       color: "executar" as const
     },
     {
-      step: "A",
+      step: "POTENCIALIZAR",
       title: "ACELERAÇÃO",
       subtitle: "Domino tudo, quero resultados extraordinários",
       description: [
