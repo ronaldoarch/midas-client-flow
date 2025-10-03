@@ -104,10 +104,11 @@ const calcPrice = (basePrice: number, dedicationPct: number) => {
 };
 
 const Dashboard = () => {
-  const { isAuthenticated } = useAuth();
-  const navigate = useNavigate();
-  const [category, setCategory] = useState("ALL");
-  const [query, setQuery] = useState("");
+  try {
+    const { isAuthenticated } = useAuth();
+    const navigate = useNavigate();
+    const [category, setCategory] = useState("ALL");
+    const [query, setQuery] = useState("");
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -359,6 +360,21 @@ const Dashboard = () => {
       </div>
     </div>
   );
+  } catch (error) {
+    console.error('Erro no Dashboard:', error);
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-foreground mb-4">Erro no Dashboard</h1>
+          <p className="text-muted-foreground">Ocorreu um erro ao carregar o dashboard.</p>
+          <p className="text-sm text-muted-foreground mt-2">Verifique o console para mais detalhes.</p>
+          <Button onClick={() => window.location.reload()} className="mt-4">
+            Recarregar Página
+          </Button>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Dashboard;
