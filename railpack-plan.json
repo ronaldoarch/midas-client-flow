@@ -6,5 +6,10 @@
   "buildCommand": "npm run build",
   "startCommand": "npm run preview",
   "installCommand": "npm ci --frozen-lockfile",
-  "nodeVersion": "18"
+  "nodeVersion": "18",
+  "runtime": "nodejs",
+  "buildSettings": {
+    "useNpm": true,
+    "ignoreBun": true
+  }
 }
