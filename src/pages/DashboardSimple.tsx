@@ -3,8 +3,11 @@ import React from 'react';
 const DashboardSimple = () => {
   const services = [
     {
-      category: "B - Blueprint",
-      color: "#e74c3c",
+      category: "B",
+      categoryName: "Blueprint",
+      categoryFull: "B - Blueprint",
+      color: "hsl(0, 87%, 67%)", // step-saber
+      bgGradient: "linear-gradient(135deg, hsl(0, 87%, 67%), hsl(0, 87%, 57%))",
       items: [
         {
           name: "ROI System & Diagnóstico",
@@ -15,8 +18,10 @@ const DashboardSimple = () => {
       ]
     },
     {
-      category: "L - Launch", 
-      color: "#27ae60",
+      category: "L",
+      categoryName: "Launch", 
+      color: "hsl(142, 76%, 36%)", // step-ter
+      bgGradient: "linear-gradient(135deg, hsl(142, 76%, 36%), hsl(142, 76%, 26%))",
       items: [
         {
           name: "Implementação de Landing Page",
@@ -33,8 +38,10 @@ const DashboardSimple = () => {
       ]
     },
     {
-      category: "I - Impact",
-      color: "#f39c12", 
+      category: "I",
+      categoryName: "Impact",
+      color: "hsl(24, 95%, 53%)", // step-executar
+      bgGradient: "linear-gradient(135deg, hsl(24, 95%, 53%), hsl(24, 95%, 43%))",
       items: [
         {
           name: "Gestão de Tráfego Black",
@@ -57,8 +64,10 @@ const DashboardSimple = () => {
       ]
     },
     {
-      category: "T - Turbo",
-      color: "#9b59b6",
+      category: "T",
+      categoryName: "Turbo",
+      color: "hsl(258, 90%, 66%)", // step-potencializar
+      bgGradient: "linear-gradient(135deg, hsl(258, 90%, 66%), hsl(258, 90%, 56%))",
       items: [
         {
           name: "Growth & Expansão (Países/Mídias)",
@@ -79,185 +88,295 @@ const DashboardSimple = () => {
   return (
     <div style={{ 
       minHeight: '100vh', 
-      backgroundColor: '#f5f5f5', 
-      padding: '20px', 
-      fontFamily: 'Arial, sans-serif' 
+      background: 'linear-gradient(135deg, hsl(210, 40%, 96.1%) 0%, hsl(0, 0%, 98%) 100%)',
+      fontFamily: 'system-ui, -apple-system, sans-serif'
     }}>
-      {/* Header */}
+      {/* Hero Section */}
       <div style={{ 
-        textAlign: 'center', 
-        marginBottom: '40px',
-        padding: '20px',
-        backgroundColor: 'white',
-        borderRadius: '10px',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+        background: 'linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(43, 96%, 56%) 100%)',
+        color: 'white',
+        padding: '40px 20px',
+        textAlign: 'center'
       }}>
-        <h1 style={{ 
-          fontSize: '32px', 
-          marginBottom: '10px', 
-          color: '#333',
-          fontWeight: 'bold'
-        }}>
-          <span style={{ color: '#ffd700' }}>BLITZ</span> - Serviços Disponíveis
-        </h1>
-        <p style={{ 
-          color: '#666', 
-          fontSize: '16px',
-          margin: 0
-        }}>
-          Escolha o serviço que melhor se adequa à sua necessidade
-        </p>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            marginBottom: '20px' 
+          }}>
+            <div style={{ 
+              width: '50px', 
+              height: '50px', 
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, hsl(43, 96%, 56%), hsl(45, 93%, 47%))',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginRight: '15px',
+              boxShadow: '0 10px 40px -10px hsl(43 96% 56% / 0.3)'
+            }}>
+              <span style={{ fontSize: '24px' }}>⚡</span>
+            </div>
+            <h1 style={{ 
+              fontSize: '48px', 
+              margin: 0,
+              fontWeight: 'bold',
+              background: 'linear-gradient(135deg, hsl(43, 96%, 56%), hsl(45, 93%, 47%))',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>
+              BLITZ
+            </h1>
+          </div>
+          <h2 style={{ 
+            fontSize: '28px', 
+            marginBottom: '15px',
+            fontWeight: '600'
+          }}>
+            Serviços Disponíveis
+          </h2>
+          <p style={{ 
+            fontSize: '18px', 
+            opacity: 0.9,
+            maxWidth: '600px',
+            margin: '0 auto',
+            lineHeight: '1.6'
+          }}>
+            Escolha o serviço que melhor se adequa à sua necessidade no método BLITZ
+          </p>
+        </div>
       </div>
 
-      {/* Serviços por Categoria */}
-      {services.map((category, index) => (
-        <div key={index} style={{ 
-          marginBottom: '30px',
-          backgroundColor: 'white',
-          borderRadius: '10px',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-          overflow: 'hidden'
-        }}>
-          {/* Cabeçalho da Categoria */}
-          <div style={{ 
-            backgroundColor: category.color,
-            color: 'white',
-            padding: '20px',
-            textAlign: 'center'
+      {/* Serviços Container */}
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
+        {/* Serviços por Categoria */}
+        {services.map((category, index) => (
+          <div key={index} style={{ 
+            marginBottom: '40px',
+            background: 'white',
+            borderRadius: '16px',
+            boxShadow: '0 25px 50px -12px hsl(0 0% 9% / 0.25)',
+            overflow: 'hidden',
+            border: `2px solid ${category.color}20`
           }}>
-            <h2 style={{ 
-              fontSize: '24px', 
-              margin: 0,
-              fontWeight: 'bold'
+            {/* Cabeçalho da Categoria */}
+            <div style={{ 
+              background: category.bgGradient,
+              color: 'white',
+              padding: '30px',
+              textAlign: 'center',
+              position: 'relative'
             }}>
-              {category.category}
-            </h2>
-          </div>
-
-          {/* Serviços da Categoria */}
-          <div style={{ padding: '20px' }}>
-            {category.items.map((service, serviceIndex) => (
-              <div key={serviceIndex} style={{ 
-                border: '1px solid #ddd',
-                borderRadius: '8px',
-                padding: '20px',
-                marginBottom: '15px',
-                backgroundColor: '#fafafa'
+              <div style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                width: '60px',
+                height: '60px',
+                borderRadius: '50%',
+                background: 'rgba(255, 255, 255, 0.2)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '24px',
+                fontWeight: 'bold'
               }}>
-                <div style={{ 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
-                  alignItems: 'flex-start',
-                  marginBottom: '15px'
+                {category.category}
+              </div>
+              <h2 style={{ 
+                fontSize: '32px', 
+                margin: 0,
+                fontWeight: 'bold'
+              }}>
+                {category.categoryFull}
+              </h2>
+              <p style={{
+                fontSize: '16px',
+                opacity: 0.9,
+                margin: '10px 0 0 0'
+              }}>
+                {category.categoryName === 'Blueprint' && 'Diagnóstico e mapeamento da operação black'}
+                {category.categoryName === 'Launch' && 'Implementação de ferramentas e sistemas'}
+                {category.categoryName === 'Impact' && 'Otimização e direcionamento de campanhas'}
+                {category.categoryName === 'Turbo' && 'Aceleração e expansão de resultados'}
+              </p>
+            </div>
+
+            {/* Serviços da Categoria */}
+            <div style={{ padding: '30px' }}>
+              {category.items.map((service, serviceIndex) => (
+                <div key={serviceIndex} style={{ 
+                  border: `2px solid ${category.color}30`,
+                  borderRadius: '12px',
+                  padding: '25px',
+                  marginBottom: '20px',
+                  background: 'linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(210, 40%, 98%) 100%)',
+                  transition: 'all 0.3s ease',
+                  position: 'relative'
                 }}>
-                  <div style={{ flex: 1 }}>
-                    <h3 style={{ 
-                      fontSize: '18px', 
-                      marginBottom: '8px', 
-                      color: '#333',
-                      fontWeight: 'bold'
-                    }}>
-                      {service.name}
-                    </h3>
-                    <p style={{ 
-                      fontSize: '14px', 
-                      color: '#666', 
-                      lineHeight: '1.5',
-                      marginBottom: '15px'
-                    }}>
-                      {service.description}
-                    </p>
-                  </div>
                   <div style={{ 
-                    textAlign: 'right',
-                    minWidth: '120px'
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'flex-start',
+                    marginBottom: '20px'
                   }}>
+                    <div style={{ flex: 1, paddingRight: '20px' }}>
+                      <h3 style={{ 
+                        fontSize: '22px', 
+                        marginBottom: '12px', 
+                        color: 'hsl(0, 0%, 9%)',
+                        fontWeight: 'bold'
+                      }}>
+                        {service.name}
+                      </h3>
+                      <p style={{ 
+                        fontSize: '16px', 
+                        color: 'hsl(215.4, 16.3%, 46.9%)', 
+                        lineHeight: '1.6',
+                        marginBottom: '20px'
+                      }}>
+                        {service.description}
+                      </p>
+                    </div>
                     <div style={{ 
-                      fontSize: '20px', 
-                      fontWeight: 'bold', 
-                      color: category.color
+                      textAlign: 'center',
+                      minWidth: '140px',
+                      padding: '15px',
+                      borderRadius: '10px',
+                      background: `linear-gradient(135deg, ${category.color}15, ${category.color}25)`,
+                      border: `2px solid ${category.color}40`
                     }}>
-                      {service.price}
+                      <div style={{ 
+                        fontSize: '24px', 
+                        fontWeight: 'bold', 
+                        color: category.color,
+                        marginBottom: '5px'
+                      }}>
+                        {service.price}
+                      </div>
+                      <div style={{
+                        fontSize: '12px',
+                        color: 'hsl(215.4, 16.3%, 46.9%)',
+                        fontWeight: '500'
+                      }}>
+                        Preço Base
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Features */}
-                <div style={{ 
-                  display: 'flex', 
-                  gap: '8px', 
-                  flexWrap: 'wrap' 
-                }}>
-                  {service.features.map((feature, featureIndex) => (
-                    <span key={featureIndex} style={{ 
-                      backgroundColor: category.color,
-                      color: 'white',
-                      padding: '4px 8px',
-                      borderRadius: '4px',
-                      fontSize: '12px',
-                      fontWeight: 'bold'
-                    }}>
-                      {feature}
-                    </span>
-                  ))}
+                  {/* Features */}
+                  <div style={{ 
+                    display: 'flex', 
+                    gap: '10px', 
+                    flexWrap: 'wrap' 
+                  }}>
+                    {service.features.map((feature, featureIndex) => (
+                      <span key={featureIndex} style={{ 
+                        background: category.bgGradient,
+                        color: 'white',
+                        padding: '8px 12px',
+                        borderRadius: '20px',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                      }}>
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
 
-      {/* Footer */}
-      <div style={{ 
-        textAlign: 'center', 
-        padding: '20px',
-        backgroundColor: 'white',
-        borderRadius: '10px',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
-      }}>
-        <p style={{ 
-          fontSize: '16px', 
-          color: '#666', 
-          marginBottom: '20px'
-        }}>
-          <strong>Método BLITZ</strong> - Escale sua operação black com segurança
-        </p>
+        {/* CTA Section */}
         <div style={{ 
-          display: 'flex', 
-          justifyContent: 'center', 
-          gap: '20px',
-          flexWrap: 'wrap'
+          textAlign: 'center', 
+          padding: '40px',
+          background: 'white',
+          borderRadius: '16px',
+          boxShadow: '0 25px 50px -12px hsl(0 0% 9% / 0.25)',
+          marginTop: '40px',
+          border: '2px solid hsl(43, 96%, 56%)30'
         }}>
-          <button 
-            onClick={() => window.location.href = '/'} 
-            style={{ 
-              backgroundColor: '#6c757d', 
-              color: 'white', 
-              padding: '12px 24px', 
-              border: 'none', 
-              borderRadius: '5px',
-              cursor: 'pointer',
-              fontSize: '16px',
-              fontWeight: 'bold'
-            }}
-          >
-            🏠 Voltar para Home
-          </button>
-          <button 
-            onClick={() => window.location.href = '/checkout'} 
-            style={{ 
-              backgroundColor: '#28a745', 
-              color: 'white', 
-              padding: '12px 24px', 
-              border: 'none', 
-              borderRadius: '5px',
-              cursor: 'pointer',
-              fontSize: '16px',
-              fontWeight: 'bold'
-            }}
-          >
-            🛒 Ir para Checkout
-          </button>
+          <h2 style={{ 
+            fontSize: '28px', 
+            color: 'hsl(0, 0%, 9%)', 
+            marginBottom: '15px',
+            fontWeight: 'bold'
+          }}>
+            Método BLITZ™ - Escale sua operação black com segurança
+          </h2>
+          <p style={{ 
+            fontSize: '18px', 
+            color: 'hsl(215.4, 16.3%, 46.9%)', 
+            marginBottom: '30px',
+            maxWidth: '600px',
+            margin: '0 auto 30px auto',
+            lineHeight: '1.6'
+          }}>
+            Toda operação no nicho black passa por 4 fases distintas. O método BLITZ™ ajuda você a identificar 
+            exatamente em que fase sua operação está e como acelerar seus resultados.
+          </p>
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '20px',
+            flexWrap: 'wrap'
+          }}>
+            <button 
+              onClick={() => window.location.href = '/'} 
+              style={{ 
+                background: 'linear-gradient(135deg, hsl(215.4, 16.3%, 46.9%), hsl(215.4, 16.3%, 36.9%))',
+                color: 'white', 
+                padding: '15px 30px', 
+                border: 'none', 
+                borderRadius: '10px',
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: '600',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 15px 40px rgba(0,0,0,0.3)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+              }}
+            >
+              🏠 Voltar para Home
+            </button>
+            <button 
+              onClick={() => window.location.href = '/checkout'} 
+              style={{ 
+                background: 'linear-gradient(135deg, hsl(43, 96%, 56%), hsl(45, 93%, 47%))',
+                color: 'white', 
+                padding: '15px 30px', 
+                border: 'none', 
+                borderRadius: '10px',
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: '600',
+                boxShadow: '0 10px 40px -10px hsl(43 96% 56% / 0.3)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 15px 50px -10px hsl(43 96% 56% / 0.4)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 10px 40px -10px hsl(43 96% 56% / 0.3)';
+              }}
+            >
+              🛒 Ir para Checkout
+            </button>
+          </div>
         </div>
       </div>
     </div>
