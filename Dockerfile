@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 
 # Install dependencies with npm
-RUN npm ci --frozen-lockfile
+RUN npm ci --frozen-lockfile --legacy-peer-deps
 
 # Copy source code
 COPY . .
