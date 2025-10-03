@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import DashboardSimple from "./pages/DashboardSimple";
+import DashboardVisualDebug from "./pages/DashboardVisualDebug";
+import Debug from "./pages/Debug";
 import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 
@@ -23,7 +25,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<DashboardSimple />} />
+            <Route path="/dashboard" element={<DashboardVisualDebug />} />
+            <Route path="/debug" element={<Debug />} />
             <Route path="/checkout" element={<Checkout />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
