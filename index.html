@@ -3,9 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
     <title>BLITZ - Sistema de Gestão de Projetos</title>
     <meta name="description" content="Sistema inteligente para gestão de projetos e checkout automático" />
+    
+    <!-- Fallback para navegadores antigos -->
+    <script>
+      // Detectar navegadores antigos e mostrar mensagem
+      if (!window.Promise || !window.fetch || !window.localStorage) {
+        document.body.innerHTML = '<div style="text-align:center;padding:50px;font-family:Arial,sans-serif;"><h2>Navegador não suportado</h2><p>Por favor, atualize seu navegador para acessar o BLITZ.</p><p>Recomendado: Safari 10+, Chrome 60+, Firefox 60+</p></div>';
+      }
+    </script>
 
     <meta property="og:title" content="BLITZ - Sistema de Gestão de Projetos" />
     <meta property="og:description" content="Sistema inteligente para gestão de projetos e checkout automático" />
