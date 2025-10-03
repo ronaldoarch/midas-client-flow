@@ -1,0 +1,10 @@
+{
+  "name": "blitz-system",
+  "description": "BLITZ - Sistema de Gestão de Projetos",
+  "version": "1.0.0",
+  "packageManager": "npm",
+  "buildCommand": "npm run build",
+  "startCommand": "npm run preview",
+  "installCommand": "npm ci --frozen-lockfile",
+  "nodeVersion": "18"
+}
