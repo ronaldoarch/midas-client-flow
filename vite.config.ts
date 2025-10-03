@@ -9,6 +9,16 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  preview: {
+    host: "::",
+    port: 3000,
+    allowedHosts: [
+      "localhost",
+      "midas-client-flow-production.up.railway.app",
+      ".railway.app",
+      ".up.railway.app"
+    ]
+  },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
