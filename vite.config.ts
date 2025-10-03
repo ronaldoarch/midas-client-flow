@@ -20,26 +20,32 @@ export default defineConfig(({ mode }) => ({
     ]
   },
   build: {
-    target: ['es2015', 'safari10'],
+    target: ['es5', 'safari9', 'safari8'],
     minify: 'terser',
     terserOptions: {
       compress: {
         drop_console: false,
         drop_debugger: false,
       },
+      mangle: false,
+      format: {
+        comments: true,
+      },
     },
     rollupOptions: {
       output: {
         manualChunks: undefined,
+        format: 'iife',
       },
     },
   },
   plugins: [
     react(), 
     legacy({
-      targets: ['defaults', 'not IE 11', 'safari >= 10'],
+      targets: ['defaults', 'not IE 11', 'safari >= 8', 'ios_saf >= 8'],
       modernPolyfills: true,
       renderLegacyChunks: true,
+      additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
     })
   ],
   resolve: {

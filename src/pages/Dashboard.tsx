@@ -110,6 +110,12 @@ const Dashboard = () => {
     const [category, setCategory] = useState("ALL");
     const [query, setQuery] = useState("");
 
+    // Detectar iPad antigo e simplificar interface
+    const isOldDevice = typeof window !== 'undefined' && 
+                       (/iPad/i.test(navigator.userAgent) && 
+                        (navigator.userAgent.match(/OS (\d+)_(\d+)/) ? 
+                         parseInt(RegExp.$1) < 10 : true));
+
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/login");
@@ -145,6 +151,49 @@ const Dashboard = () => {
   }, [selection]);
 
   const cartTotal = useMemo(() => cartItems.reduce((sum, i) => sum + i.total, 0), [cartItems]);
+
+  // Interface simplificada para iPads antigos
+  if (isOldDevice) {
+    return (
+      <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+        <Header />
+        <div style={{ maxWidth: '800px', margin: '0 auto', marginTop: '20px' }}>
+          <h1 style={{ fontSize: '24px', marginBottom: '20px', color: '#333' }}>
+            BLITZ - Sistema de Gestão de Projetos
+          </h1>
+          <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '8px', marginBottom: '20px' }}>
+            <h2 style={{ fontSize: '18px', marginBottom: '15px', color: '#666' }}>
+              Método BLITZ
+            </h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px' }}>
+              <div style={{ border: '1px solid #ddd', padding: '15px', borderRadius: '5px' }}>
+                <h3 style={{ color: '#e74c3c', fontSize: '16px', marginBottom: '10px' }}>B - Blueprint</h3>
+                <p style={{ fontSize: '14px', color: '#666' }}>Diagnóstico e mapeamento da operação black.</p>
+              </div>
+              <div style={{ border: '1px solid #ddd', padding: '15px', borderRadius: '5px' }}>
+                <h3 style={{ color: '#27ae60', fontSize: '16px', marginBottom: '10px' }}>L - Launch</h3>
+                <p style={{ fontSize: '14px', color: '#666' }}>Implementação de ferramentas e sistemas.</p>
+              </div>
+              <div style={{ border: '1px solid #ddd', padding: '15px', borderRadius: '5px' }}>
+                <h3 style={{ color: '#f39c12', fontSize: '16px', marginBottom: '10px' }}>I - Impact</h3>
+                <p style={{ fontSize: '14px', color: '#666' }}>Otimização e direcionamento de campanhas.</p>
+              </div>
+              <div style={{ border: '1px solid #ddd', padding: '15px', borderRadius: '5px' }}>
+                <h3 style={{ color: '#9b59b6', fontSize: '16px', marginBottom: '10px' }}>T - Turbo</h3>
+                <p style={{ fontSize: '14px', color: '#666' }}>Aceleração e expansão de resultados.</p>
+              </div>
+            </div>
+          </div>
+          <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '8px' }}>
+            <p style={{ fontSize: '14px', color: '#666', textAlign: 'center' }}>
+              Interface simplificada para dispositivos antigos.<br/>
+              Para funcionalidades completas, acesse em um dispositivo mais recente.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">

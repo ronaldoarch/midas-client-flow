@@ -9,11 +9,27 @@
     <title>BLITZ - Sistema de Gestão de Projetos</title>
     <meta name="description" content="Sistema inteligente para gestão de projetos e checkout automático" />
     
-    <!-- Fallback para navegadores antigos -->
+    <!-- Polyfills para iPads antigos -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es5,es6,es7,Array.prototype.includes,Promise,Object.assign,Symbol,Symbol.iterator,Array.from,Array.prototype.find,Array.prototype.findIndex,Object.values,Object.entries,Object.keys"></script>
+    
+    <!-- Fallback para navegadores muito antigos -->
     <script>
-      // Detectar navegadores antigos e mostrar mensagem
-      if (!window.Promise || !window.fetch || !window.localStorage) {
-        document.body.innerHTML = '<div style="text-align:center;padding:50px;font-family:Arial,sans-serif;"><h2>Navegador não suportado</h2><p>Por favor, atualize seu navegador para acessar o BLITZ.</p><p>Recomendado: Safari 10+, Chrome 60+, Firefox 60+</p></div>';
+      // Detectar iPads antigos especificamente
+      var isOldiPad = /iPad/i.test(navigator.userAgent) && 
+                     (navigator.userAgent.match(/OS (\d+)_(\d+)/) ? 
+                      parseInt(RegExp.$1) < 10 : true);
+      
+      if (isOldiPad) {
+        // Adicionar polyfills básicos para iPads antigos
+        if (!window.Promise) {
+          console.log('Carregando polyfill Promise para iPad antigo');
+        }
+        
+        // Verificar se é um iPad muito antigo (iOS < 8)
+        var iOSVersion = parseFloat(navigator.userAgent.match(/OS (\d+)_(\d+)/) ? RegExp.$1 + '.' + RegExp.$2 : '0');
+        if (iOSVersion > 0 && iOSVersion < 8) {
+          document.body.innerHTML = '<div style="text-align:center;padding:50px;font-family:Arial,sans-serif;background:#f5f5f5;"><h2>iPad Muito Antigo Detectado</h2><p>Seu iPad precisa do iOS 8 ou superior para acessar o BLITZ.</p><p>iOS atual: ' + iOSVersion + '</p><p>Atualize seu iPad nas Configurações > Geral > Atualização de Software</p></div>';
+        }
       }
     </script>
 
