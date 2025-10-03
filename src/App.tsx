@@ -26,7 +26,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<DashboardCompatible />} />
+            <Route path="/dashboard" element={<DashboardSimple />} />
             <Route path="/debug" element={<Debug />} />
             <Route path="/checkout" element={<Checkout />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
