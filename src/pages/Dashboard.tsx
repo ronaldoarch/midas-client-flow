@@ -102,15 +102,23 @@ const calcPrice = (basePrice: number, dedicationPct: number) => {
 };
 
 const Dashboard = () => {
+  console.log('Dashboard: Componente iniciando...');
+  
   try {
+    console.log('Dashboard: Dentro do try block');
+    
     const [category, setCategory] = useState("ALL");
     const [query, setQuery] = useState("");
+
+    console.log('Dashboard: Estados inicializados');
 
     // Detectar iPad antigo e simplificar interface
     const isOldDevice = typeof window !== 'undefined' && 
                        (/iPad/i.test(navigator.userAgent) && 
                         (navigator.userAgent.match(/OS (\d+)_(\d+)/) ? 
                          parseInt(RegExp.$1) < 10 : true));
+    
+    console.log('Dashboard: isOldDevice =', isOldDevice);
 
   // Estado por serviço
   const [selection, setSelection] = useState(
@@ -142,8 +150,11 @@ const Dashboard = () => {
 
   const cartTotal = useMemo(() => cartItems.reduce((sum, i) => sum + i.total, 0), [cartItems]);
 
+  console.log('Dashboard: Antes do return, isOldDevice =', isOldDevice);
+
   // Interface simplificada para iPads antigos
   if (isOldDevice) {
+    console.log('Dashboard: Renderizando interface para dispositivo antigo');
     return (
       <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
         <Header />
@@ -185,6 +196,7 @@ const Dashboard = () => {
     );
   }
 
+  console.log('Dashboard: Renderizando interface normal');
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -401,15 +413,29 @@ const Dashboard = () => {
   );
   } catch (error) {
     console.error('Erro no Dashboard:', error);
+    console.error('Stack trace:', error.stack);
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Erro no Dashboard</h1>
-          <p className="text-muted-foreground">Ocorreu um erro ao carregar o dashboard.</p>
-          <p className="text-sm text-muted-foreground mt-2">Verifique o console para mais detalhes.</p>
-          <Button onClick={() => window.location.reload()} className="mt-4">
+      <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Arial, sans-serif' }}>
+        <div style={{ textAlign: 'center', padding: '20px' }}>
+          <h1 style={{ fontSize: '24px', marginBottom: '16px', color: '#333' }}>Erro no Dashboard</h1>
+          <p style={{ color: '#666', marginBottom: '8px' }}>Ocorreu um erro ao carregar o dashboard.</p>
+          <p style={{ fontSize: '14px', color: '#888', marginBottom: '16px' }}>Verifique o console para mais detalhes.</p>
+          <p style={{ fontSize: '12px', color: '#999', marginBottom: '16px' }}>
+            Erro: {error.message || 'Erro desconhecido'}
+          </p>
+          <button 
+            onClick={() => window.location.reload()} 
+            style={{ 
+              backgroundColor: '#007bff', 
+              color: 'white', 
+              padding: '10px 20px', 
+              border: 'none', 
+              borderRadius: '5px',
+              cursor: 'pointer'
+            }}
+          >
             Recarregar Página
-          </Button>
+          </button>
         </div>
       </div>
     );
