@@ -9,8 +9,8 @@ const Index = () => {
 
   const stepData = [
     {
-      step: "M",
-      title: "MAPEAMENTO",
+      step: "B",
+      title: "BLUEPRINT",
       subtitle: "Não sei o que não sei",
       description: [
         "Dono de plataforma no nicho black não tem clareza sobre onde perde dinheiro ou deixa de escalar",
@@ -21,8 +21,8 @@ const Index = () => {
       color: "saber" as const
     },
     {
-      step: "I",
-      title: "IMPLEMENTAÇÃO",
+      step: "L",
+      title: "LAUNCH",
       subtitle: "Sei o que preciso, mas não tenho",
       description: [
         "Cliente já sabe que precisa de landing pages, e-commerces blindados, sites camuflados, contingência e CRM",
@@ -33,8 +33,8 @@ const Index = () => {
       color: "ter" as const
     },
     {
-      step: "D",
-      title: "DIRECIONAMENTO",
+      step: "I",
+      title: "IMPACT",
       subtitle: "Tenho tudo, mas preciso fazer funcionar",
       description: [
         "Cliente já tem estrutura de páginas, contas e criativos, mas não consegue manter ROI positivo com consistência",
@@ -45,8 +45,8 @@ const Index = () => {
       color: "executar" as const
     },
     {
-      step: "A",
-      title: "ACELERAÇÃO",
+      step: "T",
+      title: "TURBO",
       subtitle: "Domino tudo, quero resultados extraordinários",
       description: [
         "Operação já validada e com faturamento sólido",
@@ -68,14 +68,14 @@ const Index = () => {
           <div className="text-center">
             <div className="flex items-center justify-center mb-6">
               <Crown className="h-16 w-16 text-accent mr-4" />
-              <h1 className="text-6xl font-bold">MIDA</h1>
+              <h1 className="text-6xl font-bold">BLITZ</h1>
             </div>
             <h2 className="text-3xl font-bold mb-6">
-              Método MIDA no Nicho Black
+              Método BLITZ no Nicho Black
             </h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
               Transforme operações do nicho black em máquinas de lucro. Gerencie projetos e escale 
-              com segurança baseado no método MIDA para entregar resultados extraordinários.
+              com segurança baseado no método BLITZ para entregar resultados extraordinários.
             </p>
             <div className="flex justify-center space-x-4">
               <Button 
@@ -103,11 +103,11 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-6">
-              Método MIDA™ - Escale Sua Operação Black com Segurança
+              Método BLITZ™ - Escale Sua Operação Black com Segurança
             </h2>
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Toda operação no nicho black passa por 4 fases distintas em sua jornada de crescimento. Cada uma exige estratégias 
-              específicas e soluções sob medida. O método MIDA™ ajuda você a identificar exatamente em que fase sua operação está, 
+              específicas e soluções sob medida. O método BLITZ™ ajuda você a identificar exatamente em que fase sua operação está, 
               quais são os gargalos e como acelerar seus resultados com segurança e compliance.
             </p>
           </div>
@@ -132,7 +132,7 @@ const Index = () => {
       <section className="bg-muted py-16">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-foreground mb-6">
-            Descubra em qual fase do Método MIDA sua operação black está
+            Descubra em qual fase do Método BLITZ sua operação black está
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
             Dê o próximo passo para escalar com segurança e maximizar seus resultados

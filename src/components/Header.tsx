@@ -21,7 +21,7 @@ const Header = () => {
           <div className="flex items-center space-x-2">
             <Crown className="h-8 w-8 text-accent" />
             <span className="text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent">
-              MIDAS
+              BLITZ
             </span>
           </div>
           

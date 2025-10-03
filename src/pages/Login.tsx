@@ -53,7 +53,7 @@ const Login = () => {
             </div>
           </div>
           <CardTitle className="text-2xl font-bold bg-gradient-gold bg-clip-text text-transparent">
-            MIDAS
+            BLITZ
           </CardTitle>
           <p className="text-muted-foreground flex items-center justify-center mt-2">
             <Lock className="h-4 w-4 mr-2" />
